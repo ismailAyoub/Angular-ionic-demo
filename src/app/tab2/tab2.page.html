@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Add Item
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Add Item</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <ion-item>
+        <ion-input
+          label="ID"
+          type="text"
+          placeholder="Enter contact ID"
+          ngModel name="itemID"
+          #itemIDCtrl="ngModel"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Contact Name"
+          type="text"
+          placeholder="Enter contact name"
+          ngModel name="itemName"
+          #itemNameCtrl="ngModel"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Contact Phone"
+          type="text"
+          placeholder="Enter contact phone"
+          ngModel name="itemPhone"
+          #itemNameCtrl="ngModel"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Contact Email"
+          type="text"
+          placeholder="Enter contact email"
+          ngModel name="itemEmail"
+          #itemNameCtrl="ngModel"
+        ></ion-input>
+      </ion-item>
+      <ion-button expand="block" type="submit" class="add-button">Add</ion-button>
+      <ion-button
+        expand="block"
+        [disabled]="!itemIDCtrl.touched && !itemNameCtrl.touched"
+        type="button"
+        (click)="clearFunc(f)">
+          Clear
+      </ion-button>
+    </form>
+</ion-content>
